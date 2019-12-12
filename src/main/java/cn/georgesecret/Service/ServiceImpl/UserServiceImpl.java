@@ -11,8 +11,4 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-    @Override
-    public List<User> queryUserList() {
-        return userMapper.queryUserList();
-    }
 }
