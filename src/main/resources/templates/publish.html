@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>George-Secret</title>
+    <title>发布-George-Secret</title>
     <link rel="stylesheet" href="css/layui.css">
+    <link rel="stylesheet" href="css/community.css">
     <script src="layui.js"></script>
     <script>
         //JavaScript代码区域
@@ -18,7 +19,7 @@
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
-        <div class="layui-logo">George-Secret</div>
+        <div class="layui-logo">发布-George-Secret</div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
             <li class="layui-nav-item"><a href="">控制台</a></li>
@@ -35,12 +36,10 @@
         </ul>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item" th:if="${session.user == null}">
-<!--                <a href="https://github.com/login/oauth/authorize?client_id=01c5c0b406e2c7378b6c-->
-<!--&redirect_uri=http://localhost:8080/callback&scope=user&state=1">-->
-<!--                   登录-->
-<!--                </a>-->
-                <a href="/githubLogin">GitHub登录</a>
-                <a href="/qqLogin">QQ登录</a>
+                <a href="https://github.com/login/oauth/authorize?client_id=01c5c0b406e2c7378b6c
+&redirect_uri=http://localhost:8080/callback&scope=user&state=1">
+                   登录
+                </a>
             </li>
             <li class="layui-nav-item" th:if="${session.user != null}">
                 <a href="javascript:;">
@@ -85,7 +84,39 @@
 
     <div class="layui-body">
         <!-- 内容主体区域 -->
-        <div style="padding: 15px;">内容主体区域</div>
+        <div class="layui-fluid main">
+            <div class="layui-row">
+                <div class="layui-col-xs4 layui-col-sm7 layui-col-md8">
+                    <h2><i class="layui-icon layui-icon-add-1" style="font-size: 30px"></i>发起</h2>
+                    <hr>
+                    <form action="">
+                        <div class="layui-form-item">
+                            <label>问题标题（简单扼要）:</label>
+                            <input type="text"id="title" name="title" required  lay-verify="required" placeholder="请输入问题标题..." autocomplete="off" class="layui-input">
+                        </div>
+                        <div class="layui-form-item">
+                            <label>问题补充 (必填，请参照右侧提示):</label>
+                            <textarea id="description" name="description" required lay-verify="required" placeholder="问题补充 (必填，请参照右侧提示):" class="layui-textarea"></textarea>
+                        </div>
+                        <div class="layui-form-item">
+                            <label>添加标签:</label>
+                            <input type="text"id="tag" name="tag" required  lay-verify="required" placeholder="输入标签，以,隔开" autocomplete="off" class="layui-input">
+                        </div>
+                        <button type="submit" class="layui-btn layui-btn-radius layui-btn-normal layui-btn-publish" >发布</button>
+                    </form>
+                </div>
+                <div class="layui-col-xs4 layui-col-sm5 layui-col-md4">
+                    <div class="layui-row">
+                        <h3>问题发起指南</h3>
+                        • 问题标题: 请用精简的语言描述您发布的问题，不超过25字<br>
+
+                        • 问题补充: 详细补充您的问题内容，并确保问题描述清晰直观, 并提供一些相关的资料：<br>
+
+                        • 选择标签: 输入一个或者多个合适的标签，以逗号隔开，每个标签不超过10个字<br>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="layui-footer">

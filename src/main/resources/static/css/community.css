@@ -1,0 +1,11 @@
+body{
+    background-color: #efefef;
+}
+.main{
+    margin: 20px;
+    background-color: white;
+}
+.layui-btn-publish{
+    float: right;
+    margin-bottom: 15px;
+}
